@@ -13,20 +13,25 @@ La prima cosa da fare, dopo aver caricato il dataset, è quella di effettuare un
 
 Il passaggio successivo è quello di effettuare un resize delle immagini: dato che sono state scaricate in diversi momenti e da diverse fonti sono caratterizzate da dimensioni differenti, sono state tutte ridimensionate a 256x256 pixel.
 
-Dato che le immagini sono tutte nello spazio RGB viene effettuata una conversione nello spazio lab che significa andare successivamente a lavorare su un layer caratterizzato dalle informazioni sulla luminosità e due valori a e b che rappresentano i quattro colori visibili all'occhio umano: rosso, verde, blu e giallo.
+Dato che le immagini sono tutte nello spazio RGB viene effettuata una conversione nello spazio lab che significa andare successivamente a lavorare su un layer caratterizzato da un canale contenente le informazioni sulla luminosità e due canali a e b che rappresentano i quattro colori visibili all'occhio umano: rosso, verde, blu e giallo.
 
 ![lab-color-space](https://user-images.githubusercontent.com/112158913/200777154-140d6a16-e317-4b13-8183-9995f52a6e39.png)
 
 Per effettuare la conversione dallo spazio RGB allo spazio lab, il canale che rappresenta la luminosità, ovvero il canale dell'immagine in bianco e nero, viene assegnato al vettore X; invece i canali a e b che rappresentano i colori vengono assegnati al vettore Y.
-I vlori contenuti nella Y vengono normalizzati tra -1 e 1, dato che, come detto in precedenza, la ReLu assume valori compresi tra 0 e 1, nell'ultimo layer viene utilizzata la tanh come funzione di attivazione la quale presenta un dominio compreso tra -1 e 1.
+I valori contenuti nella Y vengono normalizzati tra -1 e 1, dato che, come detto in precedenza, la ReLu assume valori compresi tra 0 e 1, nell'ultimo layer viene utilizzata la tanh come funzione di attivazione la quale presenta un dominio compreso tra -1 e 1.
 
 Ecco la struttura del modello utilizzato:
+
 <img width="459" alt="Screenshot 2022-11-09 at 09 41 00" src="https://user-images.githubusercontent.com/112158913/200781729-09fd09ff-0ddf-419e-a7c6-770991ed1885.png">
 
-l'input del modello è di dimensione 256x256x1, ovvero il canale L. Dopo la prima convoluzione sono già presenti 640 parametri utilizzati nel training. Per scelta personale non ho utilizzato maxpooling ma solo layer convolutivi.
+L'input del modello è di dimensione 256x256x1, 256 pixel per 256 pixel per un canale, ovvero il canale L. Dopo la prima convoluzione sono già presenti 640 parametri utilizzati nel training. Per scelta personale non ho utilizzato maxpooling ma solo layer convolutivi.
 
 Una volta che l'immagine raggiunge la dimensione 32x32 viene passata al decoder e inizia la fase di upscaling dell'immagine in modo da avere in output un'immagine della stessa dimensione di quella in input, ovvero 256x256x2 perchè i canali a e b sono stati ricostruiti interamente.
 
 Ultimo passaggio è quello di riconvertire l'immagine dallo spazio lab allo spazio RGB e salvare il risultato ottenuto. 
 
 Dopo aver allenato il modello, dandogli in ingresso un'immagine in grayscale, l'output che si ottiene è l'immagine di input colorata.
+![00000033_(2)](https://user-images.githubusercontent.com/112158913/200799559-52b7a6ab-4673-4217-b2fe-60ea3b74ce78.jpg)![Unknown](https://user-images.githubusercontent.com/112158913/200799598-1b2efe88-b930-4912-af68-c04750cdd5f9.png)
+
+
+
