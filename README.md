@@ -32,7 +32,8 @@ Ultimo passaggio è quello di riconvertire l'immagine dallo spazio lab allo spaz
 
 Dopo aver allenato il modello, dandogli in ingresso un'immagine in grayscale, l'output che si ottiene è l'immagine di input colorata.
 
-![00000033_(2)](https://user-images.githubusercontent.com/112158913/200799785-788c9b90-aa8c-4ed9-bb16-4a94cf049e9d.jpg)
+![00000033_(2)](https://user-images.githubusercontent.com/112158913/200800627-4484c62a-f892-49a5-9e7f-e0277990d2e8.jpg)
+
 ![Unknown](https://user-images.githubusercontent.com/112158913/200799815-cd15e5bb-3044-4a28-b3d8-3f445bc4a390.png)
 
 
