@@ -31,7 +31,9 @@ Una volta che l'immagine raggiunge la dimensione 32x32 viene passata al decoder 
 Ultimo passaggio è quello di riconvertire l'immagine dallo spazio lab allo spazio RGB e salvare il risultato ottenuto. 
 
 Dopo aver allenato il modello, dandogli in ingresso un'immagine in grayscale, l'output che si ottiene è l'immagine di input colorata.
-![00000033_(2)](https://user-images.githubusercontent.com/112158913/200799559-52b7a6ab-4673-4217-b2fe-60ea3b74ce78.jpg)![Unknown](https://user-images.githubusercontent.com/112158913/200799598-1b2efe88-b930-4912-af68-c04750cdd5f9.png)
+
+![00000033_(2)](https://user-images.githubusercontent.com/112158913/200799785-788c9b90-aa8c-4ed9-bb16-4a94cf049e9d.jpg)
+![Unknown](https://user-images.githubusercontent.com/112158913/200799815-cd15e5bb-3044-4a28-b3d8-3f445bc4a390.png)
 
 
 
