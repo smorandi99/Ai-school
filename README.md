@@ -49,9 +49,12 @@ In primo luogo ho definito gli iperparametri del modello definiendo il numero di
 Scaricando il dataset da roboflow in automatico è stato creato il file data.yaml il quale contiene il percorso alle immagini del training e validation set e le corrispondenti label.
 La struttura del file data.yaml è la seguente:
 
+<img width="643" alt="Screenshot 2022-11-10 at 14 42 58" src="https://user-images.githubusercontent.com/112158913/201107768-41fdd8a9-05b6-4ba2-b8ae-22335395a95c.png">
 
 
 Prima di iniziare ad allenare il modello ho controllato un paio di immagini ground truth e per farlo ho riportato le annotazioni delle bounding box da [x_center, y_center, width, height] a [x_min, y_min, x_max, y_max] stampandole poi a video. 
+
+<img width="706" alt="Screenshot 2022-11-10 at 11 06 04" src="https://user-images.githubusercontent.com/112158913/201107839-2cc9c0fa-1598-4454-a69f-cfd488cf13cf.png">
 
 Dopo aver creato una directory per salvare i risultati del modello ho clonato il repository di YOLO e installato tutte le relative dipendenze. 
 
@@ -76,4 +79,8 @@ I risultato ottenuti al termine della fase di train sono i seguenti:
 
 <img width="884" alt="Screenshot 2022-11-10 at 14 22 46" src="https://user-images.githubusercontent.com/112158913/201105550-d0b0f84d-7a51-47e2-9f40-f91a69e344da.png">
 
+Ho poi confrontato questi con i risultati ottenuti precedentemente: 
 
+<img width="367" alt="Screenshot 2022-11-10 at 14 32 52" src="https://user-images.githubusercontent.com/112158913/201108026-b6bb9e47-3a3e-42b6-8d94-7b684a068c75.png">
+
+Quello che si può osservare è che il modello rappresentato dalla curva arancione (ovvero il primo) è migliore e si può osservare la stessa cosa nei dati che rappresentano la training loss, di fatto la curva arancione scende in maniera più veloce e questo sta a rappresentare che il modello sia in grado di imparare più velocemente ottenendo risultati migliori. 
