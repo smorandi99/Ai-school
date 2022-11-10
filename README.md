@@ -37,4 +37,43 @@ Dopo aver allenato il modello, dandogli in ingresso un'immagine in grayscale, l'
 ![Unknown](https://user-images.githubusercontent.com/112158913/200799815-cd15e5bb-3044-4a28-b3d8-3f445bc4a390.png)
 
 
+## Sea animal detection
+
+In questa seconda parte del progetto, attraverso l'utilizzo di YOLOv5, ho fatto un confronto tra effettuare object detection riallenando interamente la rete oppure attraverso il fine tuning. 
+Come soggetti da riconoscere ho scelto 7 specie marine: pesci, meduse, pinguini, pulcinelle di mare, squali, stelle marine e le mante.
+
+Per quanto riguarda il dataset ne ho creato uno su roboflow unendone di differenti, uno per ogni specie, già lebellati. Per aumentare la quantità di dati disponibili ho effettuato della data augmentation. 
+
+In primo luogo ho definito gli iperparametri del modello definiendo il numero di epoche. In seguito ho scaricato e preparato i dati: i dati originali scaricati da roboflow sono caratterizzati da due istanze per ogni immagine, di conseguenza ho eliminato il duplicato e la corrispondente label all'interno del file di testo contenente tutte le label. 
+
+Scaricando il dataset da roboflow in automatico è stato creato il file data.yaml il quale contiene il percorso alle immagini del training e validation set e le corrispondenti label.
+La struttura del file data.yaml è la seguente:
+
+
+
+Prima di iniziare ad allenare il modello ho controllato un paio di immagini ground truth e per farlo ho riportato le annotazioni delle bounding box da [x_center, y_center, width, height] a [x_min, y_min, x_max, y_max] stampandole poi a video. 
+
+Dopo aver creato una directory per salvare i risultati del modello ho clonato il repository di YOLO e installato tutte le relative dipendenze. 
+
+In primo luogo ho allenato interamente la rete ottenendo i seguenti risultati:
+
+<img width="851" alt="Screenshot 2022-11-10 at 12 01 20" src="https://user-images.githubusercontent.com/112158913/201075305-94795fed-1397-47c4-96ef-e64f22fb472b.png">
+
+In seguito ho valutato le predizioni delle immagini appartenenti al validation set e successivamente ho effettuato il processo di inferenza sulle immagini appartenenti al test set. Ecco mostrate le predizioni sul test set:
+
+<img width="872" alt="Screenshot 2022-11-10 at 12 07 05" src="https://user-images.githubusercontent.com/112158913/201075604-5d902e61-d2d1-4f7b-ae51-80b78c27383e.png">
+
+<img width="1061" alt="Screenshot 2022-11-10 at 13 31 48" src="https://user-images.githubusercontent.com/112158913/201103964-5a130b40-2ab0-4497-8507-71f4b97a4b0d.png">
+
+<img width="360" alt="Screenshot 2022-11-10 at 14 33 29" src="https://user-images.githubusercontent.com/112158913/201105292-24151e84-b5c1-4fd4-8d8e-aab4335466e7.png">
+
+Come si può osservare il modello è stato allenato in maniera corretta e, nonostante non abbia raggiunto un'accuratezza troppo elevata, il valore di map_05 è sempre cresciuto, così come si può osservare che sia la train loss che la val loss sono diminuite durante la fase di training.
+
+In secondo luogo ho effettuato finetuning per vedere se si ottenessero risultati migliori, peggiori o uguali. 
+Per farlo ho utilizzato il modello YOLO di dimensioni medie che contiene 25 blocchi di layers caratterizzati da più di 20 milioni di parametri. In questo modo ho allenato solo gli ultimi layer freezzando i primi 15 e quindi mantenendo i parametri dei primi 15 blocchi fissi.  
+
+I risultato ottenuti al termine della fase di train sono i seguenti: 
+
+<img width="884" alt="Screenshot 2022-11-10 at 14 22 46" src="https://user-images.githubusercontent.com/112158913/201105550-d0b0f84d-7a51-47e2-9f40-f91a69e344da.png">
+
 
