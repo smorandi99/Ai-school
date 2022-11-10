@@ -2,7 +2,7 @@
 
 ## From grayscale to color image
 
-Nella prima parte di questo progetto ho utilizzato un autoencoder che, data in ingesso un'immagine in grayscale, restituisse la stessa nello spazio colore RGB. 
+Nella prima parte di questo progetto ho utilizzato un autoencoder che, data in ingesso un'immagine in grayscale, restituisse la stessa a colori. 
 Per permettere ciò ho allenato un autoencoder su un dataset di immagini contenete circa 1300 immagini da me creato. Le immagini contenute nel dataset sono state scaricate alcune da internet ed altre da roboflow e rappresentano differenti landscape. 
 ![1*nqzWupxC60iAH2dYrFT78Q](https://user-images.githubusercontent.com/112158913/200778319-c713b74a-e422-444a-bede-03b6a87c5b94.png)
 
