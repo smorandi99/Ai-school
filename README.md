@@ -81,6 +81,9 @@ I risultato ottenuti al termine della fase di train sono i seguenti:
 
 Ho poi confrontato questi con i risultati ottenuti precedentemente: 
 
+<img width="1041" alt="Screenshot 2022-11-10 at 17 16 27" src="https://user-images.githubusercontent.com/112158913/201149724-068bc58b-e4e6-4d05-a12c-f00a465c073e.png">
+
+
 <img width="367" alt="Screenshot 2022-11-10 at 14 32 52" src="https://user-images.githubusercontent.com/112158913/201108026-b6bb9e47-3a3e-42b6-8d94-7b684a068c75.png">
 
 Quello che si può osservare è che il modello rappresentato dalla curva arancione (ovvero il primo) è migliore e si può osservare la stessa cosa nei dati che rappresentano la training loss, di fatto la curva arancione scende in maniera più veloce e questo sta a rappresentare che il modello sia in grado di imparare più velocemente ottenendo risultati migliori. 
